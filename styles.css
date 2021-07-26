@@ -1,0 +1,49 @@
+/* Main background: #2B2733
+Text on main background: #CBC9CF
+Header, cards: #46424D
+Card shadow: #26222D
+Text on header and cards: #FFF
+Study: #B3FD78
+Meditate: #C278FD
+Exercise: #FD8078
+Error: #EFB7EC 
+font-family: 'Montserrat', sans-serif;
+*/
+
+body{
+    min-height: 100vh;
+    background-color: #2B2733;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+main{
+    display: flex;
+    height: 100%;
+    flex-grow: 1;
+}
+
+section{
+    border: solid green 3px;
+    width: 500px;
+}
+
+#main-logo-header{
+    height: 60px;
+    background-color: #46424D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #FFF;
+}
+
+#line{
+    border-right: solid red 3px;
+    width: 1px;
+    height: auto;
+}
