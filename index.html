@@ -12,9 +12,41 @@
 <body>
     <header id="main-logo-header"><span>INTENTION TIMER</span></header>
     <main>
-        <section></section>
-        <div id="line">
-        </div>
+        <section class="left-side-box">
+            <h1 id="new-activity-text">New Activity</h1>
+            <section id="new-activity-section">
+                <div>
+                    <form>
+                        <h2>Select a category:</h2>
+                        <div id="activity-button-container">
+                            <button><img src="assets/study.svg" class="button-image">Study</button>
+                            <button><img src="assets/meditate.svg" class="button-image">Meditate</button>
+                            <button><img src="assets/exercise.svg" class="button-image">Exercise</button>
+                        </div>
+                    </div>
+                    <div id="accomplish-box">
+                        <label for="accomplish-goal">What would you like to accomplish during this time?</label>
+                        <input id="accomplish-goal" type"text" class="input-field-style">
+                    </div>
+                    <div id="time-set-box">
+                        <div>
+                            <label for="minuets">Minuets</label>
+                            <input id="minuets">
+                        </div>
+                        <div>
+                            <label for="seconds">Seconds</label>
+                            <input id="seconds">
+                        </div>
+                    </div>
+                    <div>
+                        <button>Start Activity</button>
+                    </div>
+                    </form>
+                </div>
+            </section>
+        </section>
+        <div id="line"></div>
+
     </main>
 </body>
 </html>
