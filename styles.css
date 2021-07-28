@@ -10,123 +10,169 @@ Error: #EFB7EC
 font-family: 'Montserrat', sans-serif;
 */
 
-body{
-    min-height: 100vh;
-    background-color: #2B2733;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+body {
+  min-height: 100vh;
+  background-color: #46424d;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+header {
+  height: 20vh;
+}
+main {
+  display: flex;
+  height: 80vh;
+  justify-content: space-between;
 }
 
-main{
-    display: flex;
-    height: 100%;
-    flex-grow: 1;
+button {
+  display: flex;
 }
 
-button{
-    display:flex;
+h2 {
+  color: #fff;
+  width: 90%;
 }
 
-h2{
-    color: #FFF;
-    margin-left: 60px;
+.left-side-box {
+  display: flex;
+  flex-direction: column;
+  width: 65.5%;
+  background-color: #2b2733;
 }
 
-.left-side-box{
-    display: flex;
-    flex-direction: column;
-    width: 65%;
+.right-side-box {
+  background-color: #2b2733;
+  width: 34%;
 }
 
-.button-image{
-    width: 30px;
-    height: 30px;
+.button-image {
+  width: 30px;
+  height: 30px;
 }
 
-#main-logo-header{
-    height: 80px;
-    background-color: #46424D;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    color: #FFF;
+#main-logo-header {
+  height: 80px;
+  background-color: #46424d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #fff;
+}
+/* 
+#line {
+  border-right: solid #46424d 5px;
+  width: 1px;
+  height: auto;
+} */
+
+#new-activity-text {
+  color: #cbc9cf;
+  margin-left: 40px;
 }
 
-#line{
-    border-right: solid #46424D 5px;
-    width: 1px;
-    height: auto;
+#new-activity-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #46424d;
+  border-radius: 9px;
+  height: 85%;
+  width: 90%;
+  align-items: center;
+  align-self: center;
 }
 
-#new-activity-text{
-    color: #CBC9CF;
-    margin-left: 40px;
+#activity-button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-#new-activity-section{
-    display: flex;
-    flex-direction: column;
-    background-color: #46424D;
-    border-radius: 9px;
-    height: 700px;
-    width: 875px;
-    align-self: center;
+#activity-button-container button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  width: 170px;
+  height: 72px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border: #fff solid 2px;
+  border-radius: 9px;
+  color: #fff;
+  font-size: 1.1em;
 }
 
-#activity-button-container{
-    display: flex;
-    justify-content: space-around;
+#accomplish-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10%;
 }
 
-#activity-button-container button{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: none;
-    width: 170px;
-    height: 72px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    border: #FFF solid 2px;
-    border-radius: 9px;
-    color: #FFF;
-    font-size: 1.1em;
+#accomplish-box label {
+  color: #fff;
+  font-size: 1.3em;
+  font-weight: 400;
 }
 
-#accomplish-box{
-    display: flex;
-    flex-direction: column;
-    margin-left: 60px;
-    margin-top: 70px;
+#accomplish-box input {
+  color: #fff;
+  height: 25px;
+  margin-top: 4%;
 }
 
-#accomplish-box label{
-    color: #FFF;
-    font-size: 1.3em;
-    font-weight: 400;
+.input-field-style {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ffffff;
 }
 
-#accomplish-box input{
-    color: #FFF;
-    height: 25px;
+#time-set-box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10%;
 }
 
-.input-field-style{
-    background: none;
-    border: none;
-    border-bottom: 1px solid #ffffff
+#time-set-box div {
+  display: flex;
+  flex-direction: column;
 }
 
-#time-set-box{
-    display: flex;
+#time-set-box label {
+  color: white;
+  font-size: 1.3em;
+  font-weight: 400;
 }
 
-#time-set-box div{
-    display: flex;
-    flex-direction: column;
+#time-set-box input {
+  margin-top: 10%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  color: white;
+  font-size: 1.1em;
+}
+
+#start-box {
+  margin-top: 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#start-button {
+  width: 27%;
+  height: 30px;
+  font-size: 1em;
+  color: #46424d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  margin-top: 8%;
 }

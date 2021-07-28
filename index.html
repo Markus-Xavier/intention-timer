@@ -14,38 +14,39 @@
     <main>
         <section class="left-side-box">
             <h1 id="new-activity-text">New Activity</h1>
-            <section id="new-activity-section">
-                <div>
-                    <form>
-                        <h2>Select a category:</h2>
-                        <div id="activity-button-container">
-                            <button><img src="assets/study.svg" class="button-image">Study</button>
-                            <button><img src="assets/meditate.svg" class="button-image">Meditate</button>
-                            <button><img src="assets/exercise.svg" class="button-image">Exercise</button>
-                        </div>
+            <section id="new-activity-section">   
+                <form>
+                    <h2>Select a category:</h2>
+                    <div id="activity-button-container">
+                        <button><img src="assets/study.svg" class="button-image">Study</button>
+                        <button><img src="assets/meditate.svg" class="button-image">Meditate</button>
+                        <button><img src="assets/exercise.svg" class="button-image">Exercise</button>
                     </div>
+                    
                     <div id="accomplish-box">
                         <label for="accomplish-goal">What would you like to accomplish during this time?</label>
-                        <input id="accomplish-goal" type"text" class="input-field-style">
+                        <input id="accomplish-goal" type="text" class="input-field-style">
                     </div>
+
                     <div id="time-set-box">
-                        <div>
-                            <label for="minuets">Minuets</label>
-                            <input id="minuets">
+                        <div>   
+                            <label for="minutes">Minutes</label>
+                            <input id="minutes" type="number">
                         </div>
                         <div>
                             <label for="seconds">Seconds</label>
-                            <input id="seconds">
+                            <input id="seconds" type="number">
                         </div>
                     </div>
-                    <div>
-                        <button>Start Activity</button>
+                    <div id="start-box">
+                        <button id="start-button">Start Activity</button>
                     </div>
                     </form>
                 </div>
             </section>
         </section>
-        <div id="line"></div>
+        <section class="right-side-box"></section>
+     
 
     </main>
 </body>
