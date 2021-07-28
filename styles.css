@@ -181,10 +181,15 @@ h2 {
   height: 80%;
 }
 
-p{
+p {
   color: #fff;
 }
 
 form {
   margin-top: 8%;
+}
+
+.clickedButton {
+  border: #c278fd;
+  color: #c278fd;
 }
