@@ -68,7 +68,7 @@ h2 {
   height: auto;
 } */
 
-#new-activity-text {
+.new-activity-text {
   color: #cbc9cf;
   margin-left: 40px;
 }
@@ -171,6 +171,18 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#record-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+}
+
+p{
+  color: #fff;
 }
 
 form {
