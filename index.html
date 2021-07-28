@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>The Intention Timer</title>
+</head>
+<body>
+    <header id="main-logo-header"><span>INTENTION TIMER</span></header>
+    <main>
+        <section class="left-side-box">
+            <h1 class="new-activity-text">New Activity</h1>
+            <section id="new-activity-section">   
+                <form>
+                    <h2>Select a category:</h2>
+                    <div id="activity-button-container">
+                        <button><img src="assets/study.svg" class="button-image">Study</button>
+                        <button><img src="assets/meditate.svg" class="button-image">Meditate</button>
+                        <button><img src="assets/exercise.svg" class="button-image">Exercise</button>
+                    </div>
+                    
+                    <div id="accomplish-box">
+                        <label for="accomplish-goal">What would you like to accomplish during this time?</label>
+                        <input id="accomplish-goal" type="text" class="input-field-style">
+                    </div>
+
+                    <div id="time-set-box">
+                        <div>   
+                            <label for="minutes">Minutes</label>
+                            <input id="minutes" type="number">
+                        </div>
+                        <div>
+                            <label for="seconds">Seconds</label>
+                            <input id="seconds" type="number">
+                        </div>
+                    </div>
+                    <div id="start-box">
+                        <button id="start-button">Start Activity</button>
+                    </div>
+                    </form>
+                </div>
+            </section>
+        </section>
+        <section class="right-side-box">
+            <h1 class="new-activity-text">Past Activities</h1>
+            <section id="record-section">
+                <p>You haven't log any activities yet.</p>
+                <p>Complete the form to the left to get started!</p>
+            </section>
+        </section>
+    
+
+    </main>
+</body>
+</html>
