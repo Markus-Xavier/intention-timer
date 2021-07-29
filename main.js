@@ -1,51 +1,44 @@
 var newActivityForm = document.querySelector("form");
-var threeButtons = document.querySelector("#activity-button-container");
+var buttonContainer = document.querySelector("#activity-button-container");
 var activeButton;
-newActivityForm.addEventListener("click", categoryHandler);
+var studyButton = document.querySelector("#study-button");
+var meditateButton = document.querySelector("#meditate-button");
+var exerciseButton = document.querySelector("#exercise-button");
+
+buttonContainer.addEventListener("click", changeButton);
+
+function setButtonDefault() {
+  studyButton.classList.remove("clickedStudyButton");
+  meditateButton.classList.remove("clickedMeditateButton");
+  exerciseButton.classList.remove("clickedExerciseButton");
+  studyButton.children[0].src = "assets/study.svg";
+  meditateButton.children[0].src = "assets/meditate.svg";
+  exerciseButton.children[0].src = "assets/exercise.svg";
+}
 
 function changeButton(event) {
   event.preventDefault();
-  if (activeButton) threeButtons.children.classList.remove("clickedButton");
-  activeButton = event.target;
-  activeButton.classList.add("clickedButton");
-  buttonImg = activeButton.children[0];
+  if (event.target.tagName === "IMG") {
+    activeButton = event.target.parentNode;
+  } else if (event.target.tagName === "BUTTON") {
+    activeButton = event.target;
+  }
+
+  setButtonDefault();
+
+  var buttonImg = activeButton.children[0];
   switch (activeButton.id) {
     case "study-button":
       buttonImg.src = "assets/study-active.svg";
+      activeButton.classList.add("clickedStudyButton");
       break;
     case "meditate-button":
       buttonImg.src = "assets/meditate-active.svg";
+      activeButton.classList.add("clickedMeditateButton");
       break;
     case "exercise-button":
       buttonImg.src = "assets/exercise-active.svg";
-
-    default:
-      break;
-  }
-}
-
-function categoryHandler(event) {
-  event.preventDefault();
-
-  switch (event.target.id) {
-    case "study-button":
-      event.target.children[0].src = "assets/study-active.svg";
-      activeButton = event.target;
-
-      break;
-
-    case "meditate-button":
-      event.target.children[0].src = "assets/meditate-active.svg";
-      break;
-
-    case "exercise-button":
-      event.target.children[0].src = "assets/exercise-active.svg";
-
-      break;
-
-    case "start-button":
-      console.log("start");
-      break;
+      activeButton.classList.add("clickedExerciseButton");
 
     default:
       break;
