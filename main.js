@@ -5,9 +5,9 @@ var studyButton = document.querySelector("#study-button");
 var meditateButton = document.querySelector("#meditate-button");
 var exerciseButton = document.querySelector("#exercise-button");
 
-buttonContainer.addEventListener("click", changeButton);
+buttonContainer.addEventListener("click", changeButtonStyle);
 
-function setButtonDefault() {
+function setButtonStyleDefault() {
   studyButton.classList.remove("clickedStudyButton");
   meditateButton.classList.remove("clickedMeditateButton");
   exerciseButton.classList.remove("clickedExerciseButton");
@@ -16,7 +16,7 @@ function setButtonDefault() {
   exerciseButton.children[0].src = "assets/exercise.svg";
 }
 
-function changeButton(event) {
+function changeButtonStyle(event) {
   event.preventDefault();
   if (event.target.tagName === "IMG") {
     activeButton = event.target.parentNode;
@@ -24,7 +24,7 @@ function changeButton(event) {
     activeButton = event.target;
   }
 
-  setButtonDefault();
+  setButtonStyleDefault();
 
   var buttonImg = activeButton.children[0];
   switch (activeButton.id) {
