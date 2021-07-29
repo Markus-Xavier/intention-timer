@@ -90,7 +90,7 @@ h2 {
   width: 100%;
 }
 
-#activity-button-container button {
+.activity-button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,10 +181,25 @@ h2 {
   height: 80%;
 }
 
-p{
+p {
   color: #fff;
 }
 
 form {
   margin-top: 8%;
+}
+
+.clickedStudyButton {
+  border: #b3fd78 solid 2px;
+  color: #b3fd78;
+}
+
+.clickedMeditateButton {
+  border: #c278fd solid 2px;
+  color: #c278fd;
+}
+
+.clickedExerciseButton {
+  border: #fd8078 solid 2px;
+  color: #fd8078;
 }
