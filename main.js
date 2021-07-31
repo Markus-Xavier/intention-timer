@@ -4,8 +4,10 @@ var activeButton;
 var studyButton = document.querySelector("#study-button");
 var meditateButton = document.querySelector("#meditate-button");
 var exerciseButton = document.querySelector("#exercise-button");
+var startBtn = document.getElementById("start-button");
 
 buttonContainer.addEventListener("click", changeButtonStyle);
+startBtn.addEventListener("click", submitForm);
 
 function setButtonStyleDefault() {
   studyButton.classList.remove("clickedStudyButton");
@@ -43,4 +45,22 @@ function changeButtonStyle(event) {
     default:
       break;
   }
+}
+
+function createNewActivity() {
+  if (activeButton === undefined) {
+    alert("Please select an activity category");
+  }
+  var chosenActivity = activeButton.value;
+  var goal = document.getElementById("accomplish-goal").value;
+  var minutes = document.getElementById("minutes".value);
+  var seconds = document.getElementById("seconds").value;
+
+  var newActivity = new Activity(chosenActivity, goal, minutes, seconds);
+  console.log("💎 ~ createNewActivity ~ newActivity", newActivity);
+}
+
+function submitForm(event) {
+  event.preventDefault;
+  createNewActivity();
 }
