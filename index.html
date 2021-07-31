@@ -25,17 +25,17 @@
                     
                     <div id="accomplish-box">
                         <label for="accomplish-goal">What would you like to accomplish during this time?</label>
-                        <input id="accomplish-goal" type="text" class="input-field-style">
+                        <input id="accomplish-goal" type="text" class="input-field-style" required minlength="2" maxlength="150">
                     </div>
 
                     <div id="time-set-box">
                         <div>   
                             <label for="minutes">Minutes</label>
-                            <input id="minutes" type="number">
+                            <input id="minutes" type="number" required min="1" max="999">
                         </div>
                         <div>
                             <label for="seconds">Seconds</label>
-                            <input id="seconds" type="number">
+                            <input id="seconds" type="number" required min="1" max="59">
                         </div>
                     </div>
                     <div id="start-box">
