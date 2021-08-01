@@ -1,4 +1,3 @@
-var leftBox = document.querySelector(".left-side-box");
 var newActivityForm = document.querySelector("form");
 var buttonContainer = document.querySelector("#activity-button-container");
 var activeButton;
@@ -79,21 +78,19 @@ function displayTimer() {
     <div id="timer-div">
       <span id="timer-min">${minutes}</span> <span>:</span> <span id="timer-sec">${seconds}</span>
     </div>
-    <button id="timer-start-button"> START </button>
+    <button id="timer-start-button">START</button>
   `;
-  var startBtn = document.getElementById("timer-start-button");
+  var timerStartBtn = document.getElementById("timer-start-button");
 
   switch (activeButton.id) {
     case "study-button":
-      startBtn.setAttribute("style", "border-color:#b3fd78; ");
+      timerStartBtn.setAttribute("style", "border-color:#b3fd78; ");
       break;
     case "meditate-button":
-      startBtn.setAttribute("style", "border-color:#c278fd;");
-      console.log("meditate color applied");
+      timerStartBtn.setAttribute("style", "border-color:#c278fd;");
       break;
     case "exercise-button":
       startBtn.setAttribute("style", "border-color:#fd8078;");
-      console.log("study color applied");
     default:
       break;
   }
