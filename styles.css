@@ -61,12 +61,6 @@ h2 {
   font-size: 2em;
   color: #fff;
 }
-/* 
-#line {
-  border-right: solid #46424d 5px;
-  width: 1px;
-  height: auto;
-} */
 
 .new-activity-text {
   color: #cbc9cf;
@@ -202,4 +196,29 @@ form {
 .clickedExerciseButton {
   border: #fd8078 solid 2px;
   color: #fd8078;
+}
+
+#timer-goal {
+  color: white;
+  font-size: 1.5em;
+}
+
+#timer-div {
+  color: white;
+  font: 5em sans-serif;
+}
+
+#timer-start-button {
+  width: 200px;
+  height: 200px;
+  background-color: transparent;
+  color: white;
+  font: 1.2em white sans-serif;
+  border: solid 3px;
+  border-color: transparent;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
 }

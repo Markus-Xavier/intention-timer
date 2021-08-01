@@ -8,7 +8,7 @@ class Activity {
     this.id = Date.now();
   }
 
-  startTimer() {}
+  countdown() {}
 
   markComplete() {}
 

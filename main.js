@@ -1,3 +1,4 @@
+var leftBox = document.querySelector(".left-side-box");
 var newActivityForm = document.querySelector("form");
 var buttonContainer = document.querySelector("#activity-button-container");
 var activeButton;
@@ -7,7 +8,10 @@ var exerciseButton = document.querySelector("#exercise-button");
 var startBtn = document.getElementById("start-button");
 
 buttonContainer.addEventListener("click", changeButtonStyle);
-startBtn.addEventListener("click", submitForm);
+startBtn.addEventListener("click", function () {
+  checkForm();
+  displayTimer();
+});
 
 function setButtonStyleDefault() {
   studyButton.classList.remove("clickedStudyButton");
@@ -47,20 +51,50 @@ function changeButtonStyle(event) {
   }
 }
 
-function createNewActivity() {
-  if (activeButton === undefined) {
-    alert("Please select an activity category");
+function checkForm() {
+  var isButtonChosen = Boolean(activeButton);
+  var isGoalValid = document.getElementById("goal-input").checkValidity();
+  var isMinutesValid = document.getElementById("min-input").checkValidity();
+  var isSecondsValid = document.getElementById("sec-input").checkValidity();
+  if (isButtonChosen === false) {
+    alert("Please select an activity");
   }
-  var chosenActivity = activeButton.value;
-  var goal = document.getElementById("accomplish-goal").value;
-  var minutes = document.getElementById("minutes".value);
-  var seconds = document.getElementById("seconds").value;
-
-  var newActivity = new Activity(chosenActivity, goal, minutes, seconds);
-  console.log("💎 ~ createNewActivity ~ newActivity", newActivity);
+  if (isButtonChosen && isGoalValid && isMinutesValid && isSecondsValid) {
+    displayTimer();
+  }
 }
 
-function submitForm(event) {
-  event.preventDefault;
-  createNewActivity();
+function displayTimer() {
+  var chosenActivity = activeButton.value;
+  var goal = document.getElementById("goal-input").value;
+  var minutes = document.getElementById("min-input").value;
+  var seconds = document.getElementById("sec-input").value;
+
+  var newActivity = new Activity(chosenActivity, goal, minutes, seconds);
+
+  document.querySelector(".left-side-box h1").innerText = "Current Activity";
+  document.getElementById("new-activity-section").innerHTML = "";
+  document.getElementById("new-activity-section").innerHTML = `
+    <p id="timer-goal">${goal}</p>
+    <div id="timer-div">
+      <span id="timer-min">${minutes}</span> <span>:</span> <span id="timer-sec">${seconds}</span>
+    </div>
+    <button id="timer-start-button"> START </button>
+  `;
+  var startBtn = document.getElementById("timer-start-button");
+
+  switch (activeButton.id) {
+    case "study-button":
+      startBtn.setAttribute("style", "border-color:#b3fd78; ");
+      break;
+    case "meditate-button":
+      startBtn.setAttribute("style", "border-color:#c278fd;");
+      console.log("meditate color applied");
+      break;
+    case "exercise-button":
+      startBtn.setAttribute("style", "border-color:#fd8078;");
+      console.log("study color applied");
+    default:
+      break;
+  }
 }
