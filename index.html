@@ -15,27 +15,27 @@
         <section class="left-side-box">
             <h1 class="new-activity-text">New Activity</h1>
             <section id="new-activity-section">   
-                <form>
+                <form onsubmit="return false"> 
                     <h2>Select a category:</h2>
                     <div id="activity-button-container">
-                        <button class="activity-button" id="study-button"><img src="assets/study.svg" class="button-image">Study</button>
-                        <button class="activity-button" id="meditate-button"><img src="assets/meditate.svg" class="button-image">Meditate</button>
-                        <button class="activity-button" id="exercise-button"><img src="assets/exercise.svg" class="button-image">Exercise</button>
+                        <button class="activity-button" id="study-button" value="study"><img src="assets/study.svg" class="button-image">Study</button>
+                        <button class="activity-button" id="meditate-button" value="meditate"><img src="assets/meditate.svg" class="button-image">Meditate</button>
+                        <button class="activity-button" id="exercise-button" value="exercise"><img src="assets/exercise.svg" class="button-image">Exercise</button>
                     </div>
-                    
+                   
                     <div id="accomplish-box">
-                        <label for="accomplish-goal">What would you like to accomplish during this time?</label>
-                        <input id="accomplish-goal" type="text" class="input-field-style">
+                        <label for="goal-input">What would you like to accomplish during this time?</label>
+                        <input id="goal-input" type="text" class="input-field-style" required minlength="2" maxlength="80">
                     </div>
 
                     <div id="time-set-box">
                         <div>   
-                            <label for="minutes">Minutes</label>
-                            <input id="minutes" type="number">
+                            <label for="min-input">Minutes</label>
+                            <input id="min-input" type="number" required min="1" max="999">
                         </div>
                         <div>
-                            <label for="seconds">Seconds</label>
-                            <input id="seconds" type="number">
+                            <label for="sec-input">Seconds</label>
+                            <input id="sec-input" type="number" required min="0" max="59">
                         </div>
                     </div>
                     <div id="start-box">
