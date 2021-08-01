@@ -75,12 +75,15 @@ function displayTimer() {
   newActivity = new Activity(chosenActivity, goal, minutes, seconds);
   activityArray.push(newActivity);
 
+
+  var prettyMinutes = minutes < 10 ? `0${minutes}` : minutes; 
+  var prettySeconds = seconds < 10 ? `0${seconds}` : seconds;
   document.querySelector(".left-side-box h1").innerText = "Current Activity";
   document.getElementById("new-activity-section").innerHTML = "";
   document.getElementById("new-activity-section").innerHTML = `
     <p id="timer-goal">${goal}</p>
     <div id="timer-div">
-      <span id="timer-min">${minutes}</span> <span>:</span> <span id="timer-sec">${seconds}</span>
+      <span id="timer-min">${prettyMinutes}</span> <span>:</span> <span id="timer-sec">${prettySeconds}</span>
     </div>
     <button id="timer-start-button">START</button>
   `;
@@ -100,9 +103,10 @@ function displayTimer() {
   }
 
   timerStartBtn.addEventListener("click", function () {
+    timerStartBtn.innerText = 'In Progress'
     timerStartBtn.disabled = true;
     setInterval(function () {
-      newActivity.countdown();
+      newActivity.countdown(timerStartBtn);
     }, 1000);
   });
 }
