@@ -5,12 +5,15 @@ var studyButton = document.querySelector("#study-button");
 var meditateButton = document.querySelector("#meditate-button");
 var exerciseButton = document.querySelector("#exercise-button");
 var startBtn = document.getElementById("start-button");
+var newActivity;
+var activityArray = [];
+var chosenActivity;
+var goal;
+var minutes;
+var seconds;
 
 buttonContainer.addEventListener("click", changeButtonStyle);
-startBtn.addEventListener("click", function () {
-  checkForm();
-  displayTimer();
-});
+startBtn.addEventListener("click", checkForm);
 
 function setButtonStyleDefault() {
   studyButton.classList.remove("clickedStudyButton");
@@ -64,12 +67,13 @@ function checkForm() {
 }
 
 function displayTimer() {
-  var chosenActivity = activeButton.value;
-  var goal = document.getElementById("goal-input").value;
-  var minutes = document.getElementById("min-input").value;
-  var seconds = document.getElementById("sec-input").value;
+  chosenActivity = activeButton.value;
+  goal = document.getElementById("goal-input").value;
+  minutes = document.getElementById("min-input").value;
+  seconds = document.getElementById("sec-input").value;
 
-  var newActivity = new Activity(chosenActivity, goal, minutes, seconds);
+  newActivity = new Activity(chosenActivity, goal, minutes, seconds);
+  activityArray.push(newActivity);
 
   document.querySelector(".left-side-box h1").innerText = "Current Activity";
   document.getElementById("new-activity-section").innerHTML = "";
@@ -90,8 +94,13 @@ function displayTimer() {
       timerStartBtn.setAttribute("style", "border-color:#c278fd;");
       break;
     case "exercise-button":
-      startBtn.setAttribute("style", "border-color:#fd8078;");
+      timerStartBtn.setAttribute("style", "border-color:#fd8078;");
     default:
       break;
   }
+
+  timerStartBtn.addEventListener("click", function () {
+    setInterval(newActivity.countdown(), 1000);
+    // console.log("countdown starts");
+  });
 }
