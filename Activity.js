@@ -6,16 +6,25 @@ class Activity {
     this.seconds = parseInt(seconds);
     this.completed;
     this.id = Date.now();
+    this.distance = this.minutes * 60 + this.seconds;
   }
 
   countdown() {
-    var distance = this.minutes * 60 + this.seconds;
-    var minLeft = Math.floor(distance / 60);
-    var secLeft = distance % 60;
+    if(this.distance === -1){
+      this.stopCountdown();
+      return 'timer done'
+    }
+    console.log(this.distance);
+    var minLeft = Math.floor(this.distance / 60);
+    var secLeft = this.distance % 60;
     document.getElementById("timer-min").innerText = minLeft;
     document.getElementById("timer-sec").innerText = secLeft;
-    distance--;
-    // console.log(distance);
+    this.distance--;
+  }
+
+  stopCountdown(){
+      clearInterval(1);
+      alert('timer done!');
   }
 
   markComplete() {}

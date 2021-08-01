@@ -100,7 +100,9 @@ function displayTimer() {
   }
 
   timerStartBtn.addEventListener("click", function () {
-    setInterval(newActivity.countdown(), 1000);
-    // console.log("countdown starts");
+    timerStartBtn.disabled = true;
+    setInterval(function () {
+      newActivity.countdown();
+    }, 1000);
   });
 }
