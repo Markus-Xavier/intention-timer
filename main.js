@@ -105,8 +105,9 @@ function displayTimer() {
   timerStartBtn.addEventListener("click", function () {
     timerStartBtn.innerText = 'In Progress'
     timerStartBtn.disabled = true;
-    setInterval(function () {
-      newActivity.countdown(timerStartBtn);
+    var intervalId = setInterval(function () {
+      newActivity.countdown(timerStartBtn, intervalId);
     }, 1000);
+    console.log('Interval Id:' ,intervalId);
   });
 }

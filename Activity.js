@@ -6,24 +6,26 @@ class Activity {
     this.seconds = parseInt(seconds);
     this.completed;
     this.id = Date.now();
-    this.distance = this.minutes * 60 + this.seconds;
+    this.totalSecondsLeft = this.minutes * 60 + this.seconds;
   }
 
-  countdown(startButton) {
-    if(this.distance === -1){
-      this.stopCountdown(startButton);
-      return 'timer done';
-    }
-    console.log(this.distance);
-    var minLeft = Math.floor(this.distance / 60);
-    var secLeft = this.distance % 60;
-    minLeft < 10 ? document.getElementById("timer-min").innerText = `0${minLeft}`: document.getElementById("timer-min").innerText = minLeft;
-    secLeft < 10 ? document.getElementById("timer-sec").innerText = `0${secLeft}` : document.getElementById("timer-sec").innerText = secLeft;
-    this.distance--;
-  }
+  countdown(startButton, intervalId) {
 
-  stopCountdown(startButton){
-    clearInterval(1);
+  console.log(this.totalSecondsLeft);
+  var minLeft = Math.floor(this.totalSecondsLeft / 60);
+  var secLeft = this.totalSecondsLeft % 60;
+  minLeft < 10 ? document.getElementById("timer-min").innerText = `0${minLeft}`: document.getElementById("timer-min").innerText = minLeft;
+  secLeft < 10 ? document.getElementById("timer-sec").innerText = `0${secLeft}` : document.getElementById("timer-sec").innerText = secLeft;
+  this.totalSecondsLeft--;
+
+  if(this.totalSecondsLeft === -1){
+    this.stopCountdown(startButton, intervalId);
+    return 'timer done';
+  }
+}
+
+  stopCountdown(startButton, intervalId){
+    clearInterval(intervalId);
     startButton.innerText = 'Complete';
     alert('timer done!');
   }
