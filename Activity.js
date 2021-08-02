@@ -32,5 +32,7 @@ class Activity {
 
   markComplete() {}
 
-  saveToStorage() {}
+  saveToStorage() {
+    localStorage.setItem(this.id.toString() ,JSON.stringify(this));
+  }
 }
