@@ -5,6 +5,8 @@ var studyButton = document.querySelector("#study-button");
 var meditateButton = document.querySelector("#meditate-button");
 var exerciseButton = document.querySelector("#exercise-button");
 var startBtn = document.getElementById("start-button");
+var timerView = document.getElementById("timerView");
+var timerStartBtn = document.getElementById("timer-start-button");
 var newActivity;
 var activityArray = [];
 var chosenActivity;
@@ -72,21 +74,18 @@ function displayTimer() {
   minutes = document.getElementById("min-input").value;
   seconds = document.getElementById("sec-input").value;
 
-  newActivity = new Activity(chosenActivity, goal, minutes, seconds);
-  activityArray.push(newActivity);
+  newActivityForm.classList.add("hidden");
+  timerView.classList.remove("hidden");
 
-  var prettyMinutes = minutes < 10 ? `0${minutes}` : minutes;
-  var prettySeconds = seconds < 10 ? `0${seconds}` : seconds;
+  newActivity = new Activity(chosenActivity, goal, minutes, seconds);
+  // activityArray.push(newActivity);
+
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  seconds = seconds < 10 ? `0${seconds}` : seconds;
   document.querySelector(".left-side-box h1").innerText = "Current Activity";
-  document.getElementById("new-activity-section").innerHTML = "";
-  document.getElementById("new-activity-section").innerHTML = `
-    <p id="timer-goal">${goal}</p>
-    <div id="timer-div">
-      <span id="timer-min">${prettyMinutes}</span> <span>:</span> <span id="timer-sec">${prettySeconds}</span>
-    </div>
-    <button id="timer-start-button">START</button>
-  `;
-  var timerStartBtn = document.getElementById("timer-start-button");
+  document.getElementById("timer-goal").innerText = goal;
+  document.getElementById("timer-min").innerText = minutes;
+  document.getElementById("timer-sec").innerText = seconds;
 
   switch (activeButton.id) {
     case "study-button":
@@ -100,26 +99,12 @@ function displayTimer() {
     default:
       break;
   }
-
-  timerStartBtn.addEventListener("click", function () {
-    timerStartBtn.innerText = "In Progress";
-    timerStartBtn.disabled = true;
-    var intervalId = setInterval(function () {
-      displayLogButton(newActivity.countdown(timerStartBtn, intervalId));
-    }, 1000);
-    console.log("Interval Id:", intervalId);
-  });
 }
 
-function displayLogButton(timer) {
-  if (timer === "Timer done") {
-    newActivity.markComplete();
-    document.getElementById("new-activity-section").innerHTML += `
-      <button id="log-activity-button">LOG ACTIVITY </button>`;
-    document
-      .getElementById("log-activity-button")
-      .addEventListener("click", function () {
-        newActivity.saveToStorage();
-      });
-  }
-}
+timerStartBtn.addEventListener("click", function () {
+  timerStartBtn.innerText = "In Progress";
+  timerStartBtn.disabled = true;
+  var timer = setInterval(function () {
+    newActivity.countdown(timer);
+  }, 1000);
+});

@@ -9,8 +9,10 @@ class Activity {
     this.totalSecondsLeft = this.minutes * 60 + this.seconds;
   }
 
-  countdown(startButton, intervalId) {
+  countdown(timer) {
+    this.totalSecondsLeft--;
     console.log("seconds left", this.totalSecondsLeft);
+    // console.log("Interval Id:", intervalId);
     var minLeft = Math.floor(this.totalSecondsLeft / 60);
     var secLeft = this.totalSecondsLeft % 60;
     minLeft < 10
@@ -19,23 +21,29 @@ class Activity {
     secLeft < 10
       ? (document.getElementById("timer-sec").innerText = `0${secLeft}`)
       : (document.getElementById("timer-sec").innerText = secLeft);
-    this.totalSecondsLeft--;
-
-    if (this.totalSecondsLeft === -1) {
-      this.stopCountdown(startButton, intervalId);
-      return "Timer done";
+    if (this.totalSecondsLeft === 0) {
+      clearInterval(timer);
+      startBtn.innerText = "COMPLETE!";
+      alert("Timer done!");
+      this.markComplete();
     }
   }
 
-  stopCountdown(startButton, intervalId) {
-    clearInterval(intervalId);
-    startButton.innerText = "COMPLETE!";
-    alert("Timer done!");
-    this.markComplete();
-  }
+  // stopCountdown(startButton, intervalId) {
+  //   clearInterval(intervalId);
+  //   // startButton.innerText = "COMPLETE!";
+  //   // alert("Timer done!");
+  //   // this.markComplete();
 
   markComplete() {
     this.completed = true;
+    document.querySelector(
+      ".timer-container"
+    ).innerHTML += `<button id="log-activity-button">LOG ACTIVITY</button>`;
+    var logActivityBtn = document.getElementById("log-activity-button");
+    logActivityBtn.addEventListener("click", function () {
+      newActivity.saveToStorage();
+    });
   }
 
   saveToStorage() {

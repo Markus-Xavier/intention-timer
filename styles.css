@@ -13,6 +13,10 @@ font-family: 'Montserrat', sans-serif;
   font-family: "Montserrat";
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   min-height: 100vh;
   background-color: #46424d;
@@ -201,9 +205,16 @@ form {
   color: #fd8078;
 }
 
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #timer-goal {
   color: #cbc9cf;
   font-size: 1.5em;
+  text-align: center;
 }
 
 #timer-div {
@@ -222,7 +233,6 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5%;
 }
 
 #log-activity-button {
