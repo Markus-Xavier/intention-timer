@@ -75,8 +75,7 @@ function displayTimer() {
   newActivity = new Activity(chosenActivity, goal, minutes, seconds);
   activityArray.push(newActivity);
 
-
-  var prettyMinutes = minutes < 10 ? `0${minutes}` : minutes; 
+  var prettyMinutes = minutes < 10 ? `0${minutes}` : minutes;
   var prettySeconds = seconds < 10 ? `0${seconds}` : seconds;
   document.querySelector(".left-side-box h1").innerText = "Current Activity";
   document.getElementById("new-activity-section").innerHTML = "";
@@ -103,11 +102,24 @@ function displayTimer() {
   }
 
   timerStartBtn.addEventListener("click", function () {
-    timerStartBtn.innerText = 'In Progress'
+    timerStartBtn.innerText = "In Progress";
     timerStartBtn.disabled = true;
     var intervalId = setInterval(function () {
-      newActivity.countdown(timerStartBtn, intervalId);
+      displayLogButton(newActivity.countdown(timerStartBtn, intervalId));
     }, 1000);
-    console.log('Interval Id:' ,intervalId);
+    console.log("Interval Id:", intervalId);
   });
+}
+
+function displayLogButton(timer) {
+  if (timer === "Timer done") {
+    newActivity.markComplete();
+    document.getElementById("new-activity-section").innerHTML += `
+      <button id="log-activity-button">LOG ACTIVITY </button>`;
+    document
+      .getElementById("log-activity-button")
+      .addEventListener("click", function () {
+        newActivity.saveToStorage();
+      });
+  }
 }
