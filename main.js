@@ -4,9 +4,13 @@ var activeButton;
 var studyButton = document.querySelector("#study-button");
 var meditateButton = document.querySelector("#meditate-button");
 var exerciseButton = document.querySelector("#exercise-button");
-var startBtn = document.getElementById("start-button");
+var startActivityBtn = document.getElementById("start-button");
 var timerView = document.getElementById("timerView");
 var timerStartBtn = document.getElementById("timer-start-button");
+var createNewFormButton = document.querySelector('#create-new-form-button')
+var logActivityBtnContainer = document.querySelector('#log-activity-container');
+var logActivityBtn = document.getElementById("log-activity-button");
+var noActivitiesLogged = document.getElementById("no-activities-logged");
 var newActivity;
 var activityArray = [];
 var chosenActivity;
@@ -14,8 +18,14 @@ var goal;
 var minutes;
 var seconds;
 
+window.addEventListener('load', displaySavedActivities);
 buttonContainer.addEventListener("click", changeButtonStyle);
-startBtn.addEventListener("click", checkForm);
+startActivityBtn.addEventListener("click", checkForm);
+createNewFormButton.addEventListener("click", showActivityForm);
+logActivityBtn.addEventListener("click", function(){
+  newActivity.saveToStorage();
+});
+
 
 function setButtonStyleDefault() {
   studyButton.classList.remove("clickedStudyButton");
@@ -75,7 +85,13 @@ function displayTimer() {
   seconds = document.getElementById("sec-input").value;
 
   newActivityForm.classList.add("hidden");
+  newActivityForm.reset();
   timerView.classList.remove("hidden");
+  document.getElementById("timer-goal").innerText = '';
+  document.getElementById("timer-min").innerText = '';
+  document.getElementById("timer-sec").innerText = '';
+  logActivityBtnContainer.hidden = true;
+  setButtonStyleDefault();
 
   newActivity = new Activity(chosenActivity, goal, minutes, seconds);
   // activityArray.push(newActivity);
@@ -108,3 +124,27 @@ timerStartBtn.addEventListener("click", function () {
     newActivity.countdown(timer);
   }, 1000);
 });
+
+function showActivityForm() {
+  createNewFormButton.hidden = true;
+  newActivityForm.classList.remove("hidden");
+  timerStartBtn.disabled = false;
+  timerStartBtn.innerText = "START";
+  document.getElementById("log-activity-button").hidden = true;
+}
+
+function displaySavedActivities() {
+  for(var i = 0; i < localStorage.length; i++) {
+    var savedActivity = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    var newCard = document.createElement("div");
+    newCard.classList.add("card");
+    newCard.innerHTML = `
+    <div class="${savedActivity.category}-ind"></div>
+    <p class="cardtext"><b>${savedActivity.category}</b></p>
+    <p class="cardtext">${savedActivity.minutes} MIN ${savedActivity.seconds} SECONDS</p>
+    <p class="cardtext">${savedActivity.description}</p>
+    `;
+    noActivitiesLogged.hidden = true;
+    document.getElementById("record-section").appendChild(newCard);
+  }
+}

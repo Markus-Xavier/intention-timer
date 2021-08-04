@@ -268,7 +268,7 @@ div.indicator {
   height: 20px;
   border: none;
   border-radius: 3px;
-  background-color: white;
+  /* background-color: white; */
 }
 
 p.cardtext {
@@ -277,13 +277,31 @@ p.cardtext {
 }
 
 .study-ind {
+  float: right;
+  margin-right: 5px;
+  width: 3px;
+  height: 20px;
+  border: none;
+  border-radius: 3px;
   background-color: #b3fd78;
 }
 
 .meditate-ind {
+  float: right;
+  margin-right: 5px;
+  width: 3px;
+  height: 20px;
+  border: none;
+  border-radius: 3px;
   background-color: #c278fd;
 }
 
 .exercise-ind {
+  float: right;
+  margin-right: 5px;
+  width: 3px;
+  height: 20px;
+  border: none;
+  border-radius: 3px;
   background-color: #fd8078;
 }

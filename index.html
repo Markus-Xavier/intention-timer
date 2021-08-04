@@ -77,7 +77,9 @@
               <button id="start-button">Start Activity</button>
             </div>
           </form>
-
+            <div id="create-new-form-button" hidden> 
+              <button>CREATE NEW FORM</button>
+            </div>
           <div class="hidden" id="timerView">
             <div class="timer-container">
               <p id="timer-goal"></p>
@@ -86,6 +88,9 @@
                 ><span id="timer-sec"></span>
               </div>
               <button id="timer-start-button">START</button>
+              <div id="log-activity-container" hidden> 
+                <button id="log-activity-button">LOG ACTIVITY</button>
+              </div>
             </div>
           </div>
         </section>
@@ -93,8 +98,10 @@
       <section class="right-side-box">
         <h1 class="new-activity-text">Past Activities</h1>
         <section id="record-section">
-          <p>You haven't log any activities yet.</p>
-          <p>Complete the form to the left to get started!</p>
+          <div id="no-activities-logged">
+            <p>You haven't log any activities yet.</p>
+            <p>Complete the form to the left to get started!</p>
+          </div>
         </section>
       </section>
     </main>

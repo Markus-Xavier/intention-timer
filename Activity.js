@@ -23,57 +23,32 @@ class Activity {
       : (document.getElementById("timer-sec").innerText = secLeft);
     if (this.totalSecondsLeft === 0) {
       clearInterval(timer);
-      startBtn.innerText = "COMPLETE!";
-      alert("Timer done!");
+      document.getElementById('timer-div').innerText = `Well done!`
+      logActivityBtnContainer.hidden = false;
+      timerStartBtn.innerText = "COMPLETE!";
       this.markComplete();
     }
   }
 
-  // stopCountdown(startButton, intervalId) {
-  //   clearInterval(intervalId);
-  //   // startButton.innerText = "COMPLETE!";
-  //   // alert("Timer done!");
-  //   // this.markComplete();
-
   markComplete() {
     this.completed = true;
-    document.querySelector(
-      ".timer-container"
-    ).innerHTML += `<button id="log-activity-button">LOG ACTIVITY</button>`;
-    var logActivityBtn = document.getElementById("log-activity-button");
-    logActivityBtn.addEventListener("click", function () {
-      newActivity.saveToStorage();
-    });
+    
   }
 
   saveToStorage() {
-    console.log("im working");
+    console.log(this.category);
+    timerView.classList.add("hidden");
+    createNewFormButton.hidden = false;
     localStorage.setItem(this.id.toString(), JSON.stringify(this));
     var newCard = document.createElement("div");
     newCard.classList.add("card");
     newCard.innerHTML = `
-    <div class="indicator"></div>
+    <div class="${this.category}-ind"></div>
     <p class="cardtext"><b>${this.category}</b></p>
     <p class="cardtext">${this.minutes} MIN ${this.seconds} SECONDS</p>
     <p class="cardtext">${this.description}</p>
     `;
-    document.getElementById("record-section").innerHTML = "";
+    noActivitiesLogged.hidden = true;
     document.getElementById("record-section").appendChild(newCard);
-
-    console.log(this.category);
-    switch (this.category) {
-      case "study":
-        document.querySelector(".indicator").classList.add("study-ind");
-        break;
-      case "meditate":
-        document.querySelector(".indicator").classList.add("meditate-ind");
-        break;
-      case "study":
-        document.querySelector(".indicator").classList.add("exercise-ind");
-        break;
-
-      default:
-        break;
-    }
   }
 }
