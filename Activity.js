@@ -11,8 +11,6 @@ class Activity {
 
   countdown(timer) {
     this.totalSecondsLeft--;
-    console.log("seconds left", this.totalSecondsLeft);
-    // console.log("Interval Id:", intervalId);
     var minLeft = Math.floor(this.totalSecondsLeft / 60);
     var secLeft = this.totalSecondsLeft % 60;
     minLeft < 10
@@ -36,7 +34,6 @@ class Activity {
   }
 
   saveToStorage() {
-    console.log(this.category);
     timerView.classList.add("hidden");
     createNewFormButton.hidden = false;
     localStorage.setItem(this.id.toString(), JSON.stringify(this));

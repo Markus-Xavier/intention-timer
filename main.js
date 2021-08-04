@@ -94,7 +94,6 @@ function displayTimer() {
   setButtonStyleDefault();
 
   newActivity = new Activity(chosenActivity, goal, minutes, seconds);
-  // activityArray.push(newActivity);
 
   minutes = minutes < 10 ? `0${minutes}` : minutes;
   seconds = seconds < 10 ? `0${seconds}` : seconds;
