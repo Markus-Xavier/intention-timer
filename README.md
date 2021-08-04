@@ -28,7 +28,7 @@ Mod 1 Final Group Project
 
 
 ## Install + Setup
-	- Clone this repo to your local machine and open index.html.
+- You can use this app on github pages: https://markus-xavier.github.io/intention-timer/
 
 
 ## Contributors
@@ -37,12 +37,12 @@ Mod 1 Final Group Project
   - [Wil Huffman](https://github.com/Wil-Huffman)
 
 ## Wins
-	- All iterations are running bug free! (as far as we know!)
-	- All team members got something out of the project!
+- All iterations are running bug free! (as far as we know!)
+- All team members got something out of the project!
   - We made important team decisions together 
 
 ## Challenges + Improvements
-	- Time zone difference
+- Time zone difference
 
 ## Project Specs
   - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/intention-timer-group.html)
